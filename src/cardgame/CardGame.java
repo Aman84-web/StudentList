@@ -43,9 +43,27 @@ public class CardGame {
         }
     }
     
+    public boolean isCardInArray(Card luckyCard){
+    for(Card card: hand){
+    if(card.getValue()==luckyCard.getValue() && card.getSuit()==luckyCard.getSuit()){
+    return true;}
+    }
+    return false;
+    }
+    
     public static void main(String[] args) {
         CardGame game = new CardGame();
         game.printHand();
+        
+        Card luckyCard = new Card(Card.Value.ACE,Card.Suit.HEARTS);
+        System.out.println("LuckyCard: " +luckyCard.getValue()+ " of "+luckyCard.getSuit());
+        
+        if (game.isCardInArray(luckyCard)){
+        System.out.println("Congratulations the card you have is in the magic hand.");
+        }
+        else{
+        System.out.println("Sorry, the card you have is not in the magic hand. ");}
+        
     }
     
 }
